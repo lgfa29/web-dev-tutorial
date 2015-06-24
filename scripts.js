@@ -1,4 +1,19 @@
 $(document).ready(function() {
+  var url = 'https://luizaoqui.cloudant.com/quotes/_all_docs?include_docs=true';
+  $.getJSON(url, function(data) {
+    data.rows.forEach(function(quote) {
+      var quoteElement = $('<p></p>').html(quote.doc.text).addClass('quote');
+      var authorElement = $('<span></span>').html(quote.doc.author);
+
+      quoteElement.append(authorElement);
+      $('main').append(quoteElement);
+    });
+
+    addClickEvents();
+  });
+});
+
+function addClickEvents() {
   var quotes = $('.quote');
   quotes.click(function(ev) {
     var $target = $(ev.target);
@@ -8,8 +23,6 @@ $(document).ready(function() {
       $target = $target.parent('p.quote');
     }
 
-    $target.slideUp(1000, function() {
-      alert('faded out');
-    });
+    $target.slideUp(1000);
   });
-});
+}
