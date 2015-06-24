@@ -18,3 +18,31 @@ main {
 p span {
   color: #FF9900;
 }
+
+.quote {
+  border-left: 5px solid #CCC;
+  margin-left: 50px;
+  padding: 10px;
+  font-style: italic;
+  font-family: serif;
+  font-size: 20pt;
+  width: 300px;
+}
+
+.quote span:last-child {
+  color: #424242;
+  display: block;
+  font-size: 12pt;
+  text-align: right;
+  font-family: Helvetica;
+  font-style: normal;
+}
+
+.quote span:last-child:before {
+  content: "-";
+  margin-right: 5px;
+}
+
+.quote:hover  {
+  background-color: #CCC;
+}
