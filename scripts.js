@@ -1,6 +1,13 @@
 $(document).ready(function() {
+  $('#load-quotes').click(loadQuotes);
+});
+
+function loadQuotes() {
   var url = 'https://luizaoqui.cloudant.com/quotes/_all_docs?include_docs=true';
+
   $.getJSON(url, function(data) {
+    $('.quote').remove();
+
     data.rows.forEach(function(quote) {
       var quoteElement = $('<p></p>').html(quote.doc.text).addClass('quote');
       var authorElement = $('<span></span>').html(quote.doc.author);
@@ -11,7 +18,7 @@ $(document).ready(function() {
 
     addClickEvents();
   });
-});
+}
 
 function addClickEvents() {
   var quotes = $('.quote');
