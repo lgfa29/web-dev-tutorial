@@ -1,0 +1,20 @@
+html, body, main {
+  min-height: 100%;
+}
+
+body {
+  font-family: Helvetica;
+  background-color: #3299BB;
+}
+
+main {
+  color: #424242;
+  background-color: #E9E9E9;
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+p span {
+  color: #FF9900;
+}
